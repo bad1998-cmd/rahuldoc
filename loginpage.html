@@ -1,0 +1,69 @@
+  <?php
+    include("connection1.php");
+    //error_reporting(0);
+    ?>
+
+
+<!doctype html>
+<html>
+<head> <title> WWW.LOGIN.IN</title>
+<link rel="stylesheet" href="login.css">
+<style>
+    button{
+        background-color: green;
+        font-weight: bolder;
+        width: 230px;
+        font-size: 15px;
+    }
+    input{
+        margin-left: 15px;
+    }
+    form{
+        margin-left: 40px;
+        border: 4px solid black;
+        width: 500px;
+        background-color:   aquamarine;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    
+</style>
+</head>
+<body> 
+<h1>PLEASE LOGIN WITH YOUR REGISTERED EMAIL ID </h1>
+<form> 
+FIRST NAME:<input type="text" placeholder="enter your name" name="name"><br><br>
+LAST NAME:<input type="text" placeholder="enter your surname" name="lname"><br><br>
+EMAIL ID:<input type="text" placeholder="Email" name="email"><br><br>
+PASSWORD:<input type="password" placeholder="Password" name="pass"><br><br>
+
+<button type="submit" value="submit"><a href="rb.html"> SUBMIT</a></button>
+<button type="submit" value="submit"><a href="rb.html">CREATE ACCOUNT</a></button>
+</form> 
+
+</body> 
+
+</html> 
+
+<?php
+
+    $n=$_GET['name'];
+    $ln=$_GET['lname'];
+    $email=$_GET['email'];
+    $ps=$_GET['pass'];
+    
+
+    $query="INSERT INTO login VALUES ('$n','$ln','$email','$ps')";
+    $data=mysqli_query($conn,$query);
+
+    if($data)
+    {
+        echo "Successfully Login";
+    }
+    else
+    {
+        echo "faild to data in databases";
+    }
+
+    ?>
